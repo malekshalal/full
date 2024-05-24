@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js" integrity="sha512-vTlIpCig7Yl48kFM3fyxWwW7t+cf+U7Bi22g/o2D4hbGKXnN//6hNZYtIZKSmXQJ5BTdr1jMBz6BUZV030LmuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/ar-sa.js" integrity="sha512-045Yr1rKUnSYyBj0YtRcfuEdguGcZ+30nvedCyXDDlOHCC3LX09zLn5u8KMvGtU630CTBYGR88h7mQWyichTJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
@@ -34,6 +33,7 @@
     </div>
     <script>
         $(document).ready(function() {
+           
             $('#calender').fullCalendar({
 
                 themeSystem: 'cerulean',
@@ -42,7 +42,8 @@
                     left: 'next,prev,today',
                     right: 'month,agendaWeek,agendaDay'
                 },
-                firstDay: 6,
+               events:@json($events),
+              firstDay: 6,
 
 
                 locale: 'ar-sa',

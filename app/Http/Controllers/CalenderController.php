@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\calender;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,17 @@ class CalenderController extends Controller
      */
     public function index()
     {
-        //
-        return view('calender.index');
+        $events=array();
+       $bookings=Booking::all();
+       foreach($bookings as $booking ){
+        $events[]=[
+            'title'=>$booking->name,
+            'start'=>$booking->start_date,
+            'end'=>$booking->end_date
+        ];
+       }
+        
+        return view('calender.index' ,['events'=>$events]);
     }
 
     /**
